@@ -1,36 +1,38 @@
-# hi.fuxiaoling.com
-基于VUE的个人在线简历，设计和代码都属原创，使用时请署名。
+# components-development-framework
+基于Rollup.js搭建的组件开发框架，核心特点：便捷开发、监听构建、即时调试、自动发布。
 
-预览：[http://hi.fuxiaoling.com]((http://hi.fuxiaoling.com))
+设计和代码都属原创，使用时请署名。
 
 ## 使用
-- 关闭Token认证：替换文件src/App.vue内容为以下代码：
-```
-<template>
-  <div id="app">
-    <router-view />
-  </div>
-</template>
-<script>
-export default {
-  name: "App"
-}
-</script>
-```
-- 修改自我评价数据：因为访问策略原因，自我评价数据为后台获取，关闭Token认证后一定要操作此步，修改文件src/views/resume.vue 第285行。
-- 修改其他简历数据：替换文件src/data.js内容为自己的简历数据
+- 配置package.json
+- 启动监听构建：执行 `npm run serve` 
+- 开发组件：组件存放目录为src/components，按照现有Demo组件配置即可，会自动监听构建
+- 进入src/docs目录，执行 `npm run dev` 开始调试构建后的组件，支持全局依赖或单独依赖方式调试，具体查看App.vue的例子
 
-
-## 启动
+## 开启监听构建
 ```
 npm run serve
 ```
 
-## 构建
+## 开启构建调试
+进入src/docs目录，启动一下命令
 ```
-npm run build
+npm run dev
+```
+## 构建指令
+```
+构建所有：npm run build:all 或者 npm run build
+构建基于单例组件的ESM包：npm run build:components
+构建基于所有组件的ESM包：npm run build:es
+构建基于所有组件的UMD包：npm run build:umd
+构建基于所有组件的IIFE包：npm run build:browser
 ```
 
+## 自动发布
+完成package.json配置后执行：
+```
+npm run publish
+```
 ## License
 
 [MIT](LICENSE)
