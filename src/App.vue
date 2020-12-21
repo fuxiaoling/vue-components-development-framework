@@ -1,19 +1,51 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <router-view v-if="visible" />
+    <div v-else style="margin-top: 10vh; text-align: center ">
+      <a-spin>
+        <a-icon slot="indicator" type="loading" style="font-size: 24px" spin />
+      </a-spin>
     </div>
-    <router-view />
+    <password v-if="modelVisible" :pageId="selfEvaluation.id" @setVisible="() => { this.visible = true }" />
+    <sidebar />
   </div>
 </template>
-
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
-</style>
+<script>
+import { mapGetters, mapActions } from 'vuex'
+import password from '@/components/password'
+export default {
+  name: "App",
+  components: {
+    password
+  },
+  data() {
+    return {
+      visible: false,
+      modelVisible: false
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'selfEvaluation'
+    ])
+  },
+  created() {
+    this.init()
+  },
+  methods: {
+    ...mapActions([
+      'GetToken',
+      'GetResume'
+    ]),
+    async init () {
+      await this.GetToken()
+      await this.GetResume({ params: { slug: 'resume' } })
+      if (this.selfEvaluation.needPassWord && !this.selfEvaluation.content) {
+        this.modelVisible = true
+      } else {
+        this.visible = true
+      }
+    }
+  }
+}
+</script>

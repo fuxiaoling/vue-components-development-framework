@@ -1,0 +1,102 @@
+@import "variable.stylus"
+img
+  margin 0
+  padding 0
+body
+  color $color
+  background $backgroundColor
+  padding 0
+  margin 0
+  position relative
+body,th,td,.p1,.p2
+  font-family arial
+p,form,ol,ul,li,dl,dt,dd,h1,h2,h3
+  margin 0
+  padding 0
+  list-style none
+input
+  padding-top 0
+  padding-bottom 0
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+  box-sizing border-box
+table,img
+  border 0
+td
+  font-size:9pt
+  line-height:18px
+a
+  color $color
+a:hover
+  color $hoverColor
+.container
+  width $width
+  .container-header
+    width 100%
+    height 48px
+    line-height 48px
+    .container-title
+      font-size 18px
+      font-weight 700
+    .container-more
+      font-size 12px
+      color $grayColor
+      &:hover
+        color $hoverColor
+.container-small
+  width $width
+.container, .container-small
+  position relative
+  margin 0 auto
+.fl
+  float left
+.fr
+  float right
+.f14
+  font-size 14px
+.mt15
+  margin-top: 15px
+.mt30
+  margin-top: 30px
+.pt15
+  padding-top: 15px
+.pb15
+  padding-bottom: 15px
+.pt25
+  padding-top: 25px
+.pb25
+  padding-bottom: 25px
+.pl10
+  padding-left 10px
+.pl20
+  padding-left 20px
+.pl30
+  padding-left 30px
+.pl60
+  padding-left 60px
+.br6
+  border-radius 6px
+.p30
+  padding 30px
+.ant-layout
+  background-color $backgroundColor
+.ffffff
+  background-color #ffffff
+.w50p
+  width 49.3%
+.w100p
+  width 100%
+.tal
+  text-align left
+.tac
+  text-align center
+.tar
+  text-align right
+.br5
+  border-radius 5px
+.pr
+  position relative
+.pa
+  position absolute
+.minheight
+  min-height 800px
