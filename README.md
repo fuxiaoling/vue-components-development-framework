@@ -1,7 +1,7 @@
 # hi.fuxiaoling.com
 基于VUE的个人在线简历，设计和代码都属原创，使用时请署名。
 
-预览：hi.fuxiaoling.com
+预览：[hi.fuxiaoling.com]((http://hi.fuxiaoling.com))
 
 ## 使用
 - 关闭Token认证：替换文件src/App.vue内容为以下代码：
